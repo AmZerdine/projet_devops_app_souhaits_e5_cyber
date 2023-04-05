@@ -49,30 +49,6 @@ pipeline {
                 }
             }
         }
-        stage('build') {
-            steps {
-                echo 'Check de l\'avancement des challenges'
-                sleep 10
-                echo 'Synchronisation 100%'
-                sleep 5
-            }
-        }
-        stage('test') {
-            steps {
-                echo 'Verification du nombre d\'utilisateurs'
-                sleep 10
-                echo 'Utilisateurs inscrits : 126'
-                sleep 5
-            }
-        }
-        stage('deploy') {
-            steps {
-                echo 'Identification de nouveaux challenges'
-                sleep 20
-                echo 'Challenges créez : 12'
-                sleep 5
-            }
-        }
     }
         stage (MOIS == "Juillet") {
             steps {
@@ -132,6 +108,30 @@ pipeline {
                     challenge = "Faire de la sophrologie"; "Participer aux fêtes de fins d’années avec ceux qu’on aime"; "Aller au ski"
                     echo "Votre challenges à été sélectionner"
                 }
+            }
+        }
+        stage('build') {
+            steps {
+                echo 'Check de l\'avancement des challenges'
+                sleep 10
+                echo 'Synchronisation 100%'
+                sleep 5
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'Verification du nombre d\'utilisateurs'
+                sleep 10
+                echo 'Utilisateurs inscrits : 126'
+                sleep 5
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'Identification de nouveaux challenges'
+                sleep 20
+                echo 'Challenges créez : 12'
+                sleep 5
             }
         }
     }
