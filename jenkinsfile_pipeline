@@ -21,60 +21,61 @@ pipeline {
                 }
             }
         }
+    stages {
         stage (MOIS == Juillet) {
             steps {
                 script {
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = (choices: ["Aller à un concert/festival/boite de nuit", "Danser", "Faire une fête à la maison", "Chanter sa musique préférée"])
+                    params.CHALLENGES = string: "Aller à un concert/festival/boite de nuit", "Danser", "Faire une fête à la maison", "Chanter sa musique préférée"
                     echo "Votre challenges à été sélectionner"
-                    }
                 }
             }
+        }
         stage (MOIS == Aout) {
             steps {
                 script {
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = (choices: ["Passer une soirée sur la plage", "Contempler les étoiles", "Bronzer sous le soleil"])
+                    params.CHALLENGES = string: "Passer une soirée sur la plage", "Contempler les étoiles", "Bronzer sous le soleil"
                     echo "Votre challenges à été sélectionner"
-                    }
                 }
             }
+        }
         stage (MOIS == Septembre) {
             steps {
                 script {
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = (choices: ["Faire de la Via Ferrata", "Voyager", "Partir à l’aventure", "Faire de la randonnée"])
+                    params.CHALLENGES = string: "Faire de la Via Ferrata", "Voyager", "Partir à l’aventure", "Faire de la randonnée"
                     echo "Votre challenges à été sélectionner"
-                    }
                 }
             }
+        }
         stage (MOIS == Octobre) {
             steps {
                 script {
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = (choices: ["Apprendre une nouvelle langue", "Se former et passer des certifications", "Faire des recherches"])
+                    params.CHALLENGES = string: "Apprendre une nouvelle langue", "Se former et passer des certifications", "Faire des recherches"
                     echo "Votre challenges à été sélectionner"
-                    }
                 }
             }
+        }
         stage (MOIS == Novembre) {
             steps {
                 script {
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = (choices: ["Faire du solfège", "Chanter", "Jouer à un instrument", "Apprendre des chansons"])
+                    params.CHALLENGES = string: "Faire du solfège", "Chanter", "Jouer à un instrument", "Apprendre des chansons"
                     echo "Votre challenges à été sélectionner"
-                    }
                 }
             }
+        }
         stage (MOIS == Decembre) {
             steps {
                 script {
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = (choices: ["Faire de la sophrologie", "Participer aux fêtes de fins d’années avec ceux qu’on aime", "Aller au ski"])
+                    params.CHALLENGES = string: "Faire de la sophrologie", "Participer aux fêtes de fins d’années avec ceux qu’on aime", "Aller au ski"
                     echo "Votre challenges à été sélectionner"
-                    }
                 }
             }
+        }
         stage('build') {
             steps {
                 echo "transmission des informations de vos challenges"
