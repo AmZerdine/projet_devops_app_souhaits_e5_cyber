@@ -21,9 +21,7 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
-        stage (MOIS == Juillet) {
+        stage (MOIS == "Juillet") {
             steps {
                 script {
                     def challenge = "${params.CHALLENGES}"
@@ -33,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage (MOIS == Aout) {
+        stage (MOIS == "Aout") {
             steps {
                 script {
                     def challenge = "${params.CHALLENGES}"
@@ -43,7 +41,7 @@ pipeline {
                 }
             }
         }
-        stage (MOIS == Septembre) {
+        stage (MOIS == "Septembre") {
             steps {
                 script {
                     def challenge = "${params.CHALLENGES}"
@@ -53,7 +51,7 @@ pipeline {
                 }
             }
         }
-        stage (MOIS == Octobre) {
+        stage (MOIS == "Octobre") {
             steps {
                 script {
                     def challenge = "${params.CHALLENGES}"
@@ -63,7 +61,7 @@ pipeline {
                 }
             }
         }
-        stage (MOIS == Novembre) {
+        stage (MOIS == "Novembre") {
             steps {
                 script {
                     def challenge = "${params.CHALLENGES}"
@@ -73,7 +71,7 @@ pipeline {
                 }
             }
         }
-        stage (MOIS == Decembre) {
+        stage (MOIS == "Decembre") {
             steps {
                 script {
                     def challenge = "${params.CHALLENGES}"
