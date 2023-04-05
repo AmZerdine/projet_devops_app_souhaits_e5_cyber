@@ -44,7 +44,7 @@ pipeline {
                             echo "Attention au temps qui passe ! Commencez vite vos challenges !"
                             sleep 10
                         }
-                        if (avancement == '25') {
+                        else if (avancement == '25') {
                             echo "Avancement 25%"
                             echo "Attention nous sommes déjà à la moitié du mois, n'oubliez pas vos objectifs !"
                             sleep 10
