@@ -25,8 +25,9 @@ pipeline {
         stage (MOIS == Juillet) {
             steps {
                 script {
+                    def challenge = "${params.CHALLENGES}"
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = string: "Aller à un concert/festival/boite de nuit", "Danser", "Faire une fête à la maison", "Chanter sa musique préférée"
+                    challenge = "Aller à un concert/festival/boite de nuit", "Danser", "Faire une fête à la maison", "Chanter sa musique préférée"
                     echo "Votre challenges à été sélectionner"
                 }
             }
@@ -34,8 +35,9 @@ pipeline {
         stage (MOIS == Aout) {
             steps {
                 script {
+                    def challenge = "${params.CHALLENGES}"
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = string: "Passer une soirée sur la plage", "Contempler les étoiles", "Bronzer sous le soleil"
+                    challenge = "Passer une soirée sur la plage", "Contempler les étoiles", "Bronzer sous le soleil"
                     echo "Votre challenges à été sélectionner"
                 }
             }
@@ -43,8 +45,9 @@ pipeline {
         stage (MOIS == Septembre) {
             steps {
                 script {
+                    def challenge = "${params.CHALLENGES}"
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = string: "Faire de la Via Ferrata", "Voyager", "Partir à l’aventure", "Faire de la randonnée"
+                    challenge = "Faire de la Via Ferrata", "Voyager", "Partir à l’aventure", "Faire de la randonnée"
                     echo "Votre challenges à été sélectionner"
                 }
             }
@@ -52,8 +55,9 @@ pipeline {
         stage (MOIS == Octobre) {
             steps {
                 script {
+                    def challenge = "${params.CHALLENGES}"
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = string: "Apprendre une nouvelle langue", "Se former et passer des certifications", "Faire des recherches"
+                    challenge = "Apprendre une nouvelle langue", "Se former et passer des certifications", "Faire des recherches"
                     echo "Votre challenges à été sélectionner"
                 }
             }
@@ -61,8 +65,9 @@ pipeline {
         stage (MOIS == Novembre) {
             steps {
                 script {
+                    def challenge = "${params.CHALLENGES}"
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = string: "Faire du solfège", "Chanter", "Jouer à un instrument", "Apprendre des chansons"
+                    challenge = "Faire du solfège", "Chanter", "Jouer à un instrument", "Apprendre des chansons"
                     echo "Votre challenges à été sélectionner"
                 }
             }
@@ -70,8 +75,9 @@ pipeline {
         stage (MOIS == Decembre) {
             steps {
                 script {
+                    def challenge = "${params.CHALLENGES}"
                     echo "Voici les challenges recommander pour ce mois : "
-                    params.CHALLENGES = string: "Faire de la sophrologie", "Participer aux fêtes de fins d’années avec ceux qu’on aime", "Aller au ski"
+                    challenge = "Faire de la sophrologie", "Participer aux fêtes de fins d’années avec ceux qu’on aime", "Aller au ski"
                     echo "Votre challenges à été sélectionner"
                 }
             }
