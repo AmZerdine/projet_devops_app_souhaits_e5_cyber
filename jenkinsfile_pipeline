@@ -39,17 +39,54 @@ pipeline {
                     if (MOIS == "Janvier" && DATE_DU_JOUR == "15") {
                         echo "Voici votre avancement sur vos challenges : "
                         sleep 10
-                        echo "Avancement 25%"
-                        echo "Attention nous sommes déjà à la moitié du mois, n'oubliez pas vos objectifs !"
-                        sleep 10
+                        if (avancement == '0') {
+                            echo "Avancement 0%"
+                            echo "Attention au temps qui passe ! Commencez vite vos challenges !"
+                            sleep 10
+                        }
+                        if (avancement == '25') {
+                            echo "Avancement 25%"
+                            echo "Attention nous sommes déjà à la moitié du mois, n'oubliez pas vos objectifs !"
+                            sleep 10
+                        }
+                        else if (avancement == '50') {
+                            echo "Avancement 50%"
+                            echo "Bravo vous êtes sur la bonne voix, encore un petit effort !"
+                            sleep 10
+                        }
+                        else if (avancement == '100') {
+                            echo "Avancement 100%"
+                            echo "Félicitation vous avez déjà accompli tous vos challenges du mois en cours ! Profitez en pour les améliorer encore un peu !"
+                            sleep 10
+                        }
                     }
-                    elif (MOIS == "Janvier" && DATE_DU_JOUR == "31") {
-                        echo ""
+                    else if (MOIS == "Janvier" && DATE_DU_JOUR == "31") {
+                        echo "C'est la fin du challenge !"
+                        sleep 10
+                        if (avancement == '0') {
+                            echo "Avancement 0%"
+                            echo "Vous êtes-vous oublié ce mois-ci ? Pensez y le mois prochain !"
+                            sleep 10
+                        }
+                        if (avancement == '25') {
+                            echo "Avancement 25%"
+                            echo "Il y a un début à tout ! Vous ferez mieux la prochaine fois !"
+                            sleep 10
+                        }
+                        else if (avancement == '50') {
+                            echo "Avancement 50%"
+                            echo "C'est un bon début ! Challenge à moitier réussi, visez plus haut !"
+                            sleep 10
+                        }
+                        else if (avancement == '100') {
+                            echo "Avancement 100%"
+                            echo "Félicitation vous avez accompli tous vos challenges du mois en cours !"
+                            sleep 10
+                        }
                     }
                 }
             }
         }
-    }
         stage (MOIS == "Juillet") {
             steps {
                 script {
