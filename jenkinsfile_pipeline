@@ -9,10 +9,21 @@ pipeline {
         string(name: 'CHALLENGES', description: 'Entrer les challenge du mois que vous souahitez faire : ')
     }
     # Partie Amandine
-    
+    stages {
+        stage ('Formulaire') {
+            steps {
+                script {
+                    def prenom = "${params.PRENOM"}"
+                    def nom = "${params.NOM}"
+                    def password = "${params.SONAR_SERVER_PWD}"
+
+                    echo "Bonjour " + prenom + ", bienvenue sur notre application qui va vous permettre de réaliser vos souhaits !"
+                    sleep 10 
+                }
+            }
+        }
     
     # Partie Kilian
-    stages {
         stage (MOIS == Juillet) {
             steps {
                 script {
