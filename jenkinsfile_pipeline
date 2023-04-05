@@ -6,9 +6,7 @@ pipeline {
         password(name: 'SONAR_SERVER_PWD', description: 'Entrer votre mot de passe SONAR')
         choice(name: 'MOIS', choices: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet','Aout', 'Septembre', 'Octobre','Novembre', 'Decembre'], description: 'Choisissez le mois')
         choice(name: 'DATE_DU_JOUR', choices: ['1', '2', '3', '4', '5', '6', '7','8', '9', '10','11', '12','13', '14', '15', '16', '17', '18', '19','20', '21', '22','23', '24','25','26','27','28','29','30','31'], description: 'Quel est la date du jour ?')
-        choice(name: 'CHALLENGES', choices: ["Rédiger et garder précieusement un journal intime", "Prendre du temps pour écrire", "Bricoler des meubles", "Acheter des plantes", "Faire un grand ménage", "Faire plus d'exercice", "Faire des activités que l'on aime (balade, ciné…)", "Mieux manger", "Arrêter de fumer", "Faire un don à une association", "Envoyer un message gentil à sa famille", "Emmener son/sa conjoint.e au restaurant", "Rendre un service à quelqu'un", "Voyager en famille", "Effectuer un marathon", "Prendre des cours de danse", "Faire du saut à l'élastique", "Proposer un week-end en famille", "Appeler sa famille", "Organiser des sorties entre amis", "Aller dîner", "Aller à un concert/festival/boite de nuit", "Danser", "Faire une fête à la maison", "Chanter sa musique préférée", "Passer une soirée sur la plage", "Contempler les étoiles", "Bronzer sous le soleil", "Faire de la Via Ferrata", "Voyager", "Partir à l'aventure", "Faire de la randonnée", "Apprendre une nouvelle langue", "Se former et passer des certifications", "Faire des recherches", "Faire du solfège", "Chanter", "Jouer à un instrument", "Apprendre des chansons", "Faire de la sophrologie", "Participer aux fêtes de fins d'années avec ceux qu'on aime", "Aller au ski"], description: 'Entrer les challenge du mois que vous souahitez faire : ')
-
-
+        string(name: 'CHALLENGES', description: 'Entrer les challenges du mois que vous souhaitez faire : ')
     }
     stages {
         stage ('Formulaire') {
@@ -18,7 +16,7 @@ pipeline {
                     def nom = "${params.NOM}"
                     def password = "${params.SONAR_SERVER_PWD}"
 
-                    echo "Bonjour " + prenom + ", bienvenue sur notre application qui va vous permettre de réaliser vos souhaits !"
+                    echo "Bonjour $prenom, bienvenue sur notre application qui va vous permettre de réaliser vos souhaits !"
                     sleep 10 
                 }
             }
@@ -36,7 +34,7 @@ pipeline {
                         echo "Voici les challenges possibles : $challenges"
                         sleep 10
                     }
-                    else if (mois == "Janvier" && today == '15') {
+                    else if (mois == "Janvier" && today > '1' && today <= '20') {
                         echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
                         sleep 10
                     }
@@ -44,33 +42,158 @@ pipeline {
                         echo "Avancement 100%"
                         echo "Félicitation vous avez accompli tous vos challenges du mois en cours !"
                         sleep 10
+                        }
                     }
                 }
             }
-        }
+        stage ('Février') {
+            steps {
+                script {
+                    def challenges = "${params.CHALLENGES}"
+                    def today = "${params.DATE_DU_JOUR}"
+                    def mois = "${params.MOIS}"
+
+                    if (mois == "Février" && today == '1') {
+                        challenges = "Bricoler des meubles, acheter des plantes, faire un grand ménage, redécorer la maison."
+                        echo "Bienvenue au mois de $mois"
+                        echo "Voici les challenges possibles : $challenges"
+                        sleep 10
+                    }
+                    else if (mois == "Février" && today > '1' && today <= '15') {
+                        echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+                        sleep 10
+                    }
+                    else if (mois == "Février" && today == '28') {
+                        echo "Avancement 95%"
+                        echo "Vous y êtes presque arrivé pour ce mois-ci !"
+                        sleep 10
+                        }
+                    }
+                }
+            }
+            stage ('Mars') {
+                steps {
+                    script {
+                        def challenges = "${params.CHALLENGES}"
+                        def today = "${params.DATE_DU_JOUR}"
+                        def mois = "${params.MOIS}"
+
+                        if (mois == "Mars" && today == '1') {
+                            challenges = "Arreter de fumer, mieux manger, faire des activités que l'on aime, faire plus d'exercice."
+                            echo "Bienvenue au mois de $mois"
+                            echo "Voici les challenges possibles : $challenges"
+                            sleep 10
+                        }
+                        else if (mois == "Mars" && today > '1' && today <= '15') {
+                            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+                            sleep 10
+                        }
+                        else if (mois == "Mars" && today == '31') {
+                            echo "Avancement 45%"
+                            echo "Dommage pour ce mois-ci. Vous n'avez pas accompli vos défis ! Vous ferez mieux le mois prochain !"
+                            sleep 10
+                        }
+                    }
+                }
+            }
+            stage ('Avril') {
+                steps {
+                    script {
+                        def challenges = "${params.CHALLENGES}"
+                        def today = "${params.DATE_DU_JOUR}"
+                        def mois = "${params.MOIS}"
+
+                        if (mois == "Avril" && today == '1') {
+                            challenges = "Rendre un service à quelq'un, emmener son/sa conjoint(e) au restaurant, envoyer un message gentil à sa famille, faire un don à une association"
+                            echo "Bienvenue au mois de $mois"
+                            echo "Voici les challenges possibles : $challenges"
+                            sleep 10
+                        }
+                        else if (mois == "Avril" && today > '1' && today <= '20') {
+                            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+                            sleep 10
+                        }
+                        else if (mois == "Avril" && today == '30') {
+                            echo "Avancement 100%"
+                            echo "Félicitation vous avez accompli tous vos challenges du mois en cours !"
+                            sleep 10
+                        }
+                    }
+                }
+            }
+            stage ('Mai') {
+                steps {
+                    script {
+                        def challenges = "${params.CHALLENGES}"
+                        def today = "${params.DATE_DU_JOUR}"
+                        def mois = "${params.MOIS}"
+
+                        if (mois == "Mai" && today == '1') {
+                            challenges = "Faire du saut à l'elastique, prendre des cours de danse, effectuer un marathon, voyager en famille."
+                            echo "Bienvenue au mois de $mois"
+                            echo "Voici les challenges possibles : $challenges"
+                            sleep 10
+                        }
+                        else if (mois == "Mai" && today > '1' && today <= '20') {
+                            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+                            sleep 10
+                        }
+                        else if (mois == "Mai" && today == '31') {
+                            echo "Avancement 98%"
+                            echo "Félicitation vous avez pratiquement accompli tous vos challenges du mois en cours !"
+                            sleep 10
+                        }
+                    }
+                }
+            }
+            stage ('Juin') {
+                steps {
+                    script {
+                        def challenges = "${params.CHALLENGES}"
+                        def today = "${params.DATE_DU_JOUR}"
+                        def mois = "${params.MOIS}"
+
+                        if (mois == "Juin" && today == '1') {
+                            challenges = "Aller diner, organiser des sorties entre amis, appeler sa famille, proposer un week-end en famille ou entre amis."
+                            echo "Bienvenue au mois de $mois"
+                            echo "Voici les challenges possibles : $challenges"
+                            sleep 10
+                        }
+                        else if (mois == "Juin" && today > '1' && today <= '20') {
+                            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+                            sleep 10
+                        }
+                        else if (mois == "Juin" && today == '30') {
+                            echo "Avancement 80%"
+                            echo "Bravo, vous y étiez presque !"
+                            sleep 10
+                        }
+                    }
+                }
+            }
         stage('build') {
             steps {
-                echo "Check de l'avancement des challenges"
+                echo 'Check de l\'avancement des challenges'
                 sleep 10
-                echo "Synchronisation 100%"
+                echo 'Synchronisation 100%'
                 sleep 5
             }
         }
         stage('test') {
             steps {
-                echo "Verification du nombre d'utilisateurs"
+                echo 'Verification du nombre d\'utilisateurs'
                 sleep 10
-                echo "Utilisateurs inscrits : 126"
+                echo 'Utilisateurs inscrits : 126'
                 sleep 5
             }
         }
         stage('deploy') {
             steps {
-                echo "Identification de nouveaux challenges"
+                echo 'Identification de nouveaux challenges'
                 sleep 20
-                echo "Challenges créez : 12"
+                echo 'Challenges créés : 12'
                 sleep 5
             }
         }
-    }
+    }    
 }
