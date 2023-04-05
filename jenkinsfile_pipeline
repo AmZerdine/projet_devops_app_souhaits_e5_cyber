@@ -43,17 +43,42 @@ pipeline {
                         echo "Avancement 100%"
                         echo "Félicitation vous avez accompli tous vos challenges du mois en cours !"
                         sleep 10
-                        }
                     }
                 }
             }
-        stage (MOIS == "Juillet") {
+        }
+        stage ("Juillet") {
             steps {
                 script {
-                    def challenge = "${params.CHALLENGES}"
-                    echo "Voici les challenges recommander pour ce mois : "
-                    challenge = "Aller à un concert/festival/boite de nuit"; "Danser"; "Faire une fête à la maison"; "Chanter sa musique préférée"
-                    echo "Votre challenges à été sélectionner"
+                    def challengesJuillet = "${params.CHALLENGES}"
+                    if (MOIS == "Juillet") {
+                        challengesJuillet = "Aller à un concert/festival/boite de nuit, Danser, Faire une fête à la maison, Chanter sa musique préférée"
+                        echo "Voici les challenges possibles : " $challengesJuillet
+                    }
+                    else {
+                        echo "Revenez au mois de Juillet !"
+                    }
+                    if (MOIS == "Juillet" && DATE_DU_JOUR == "15") {
+                        echo "Voici votre avancement sur vos challenges : "
+                        sleep 10
+                        echo "Avancement 25%"
+                        echo "Attention nous sommes déjà à la moitié du mois, n'oubliez pas vos objectifs !"
+                        sleep 10
+                    }
+                    else if (MOIS == "Juillet" && DATE_DU_JOUR == "31") {
+                        echo "Voici votre avancement sur vos challenges : "
+                        sleep 10
+                        echo "Avancement 75%"
+                        echo "Attention nous sommes à la fin du mois et votre challenges n'est pas encore terminer !"
+                        sleep 10
+                    }
+                    else if (MOIS == "Juillet" && DATE_DU_JOUR == "31") {
+                        echo "Voici votre avancement sur vos challenges : "
+                        sleep 10
+                        echo "Avancement 100%"
+                        echo "Félicitations, votre challenges" $challengesJuillet "est réussi !"
+                        sleep 10
+                    }
                 }
             }
         }
@@ -109,25 +134,25 @@ pipeline {
         }
         stage('build') {
             steps {
-                echo 'Check de l\'avancement des challenges'
+                echo "Check de l'avancement des challenges"
                 sleep 10
-                echo 'Synchronisation 100%'
+                echo "Synchronisation 100%"
                 sleep 5
             }
         }
         stage('test') {
             steps {
-                echo 'Verification du nombre d\'utilisateurs'
+                echo "Verification du nombre d'utilisateurs"
                 sleep 10
-                echo 'Utilisateurs inscrits : 126'
+                echo "Utilisateurs inscrits : 126"
                 sleep 5
             }
         }
         stage('deploy') {
             steps {
-                echo 'Identification de nouveaux challenges'
+                echo "Identification de nouveaux challenges"
                 sleep 20
-                echo 'Challenges créez : 12'
+                echo "Challenges créez : 12"
                 sleep 5
             }
         }
