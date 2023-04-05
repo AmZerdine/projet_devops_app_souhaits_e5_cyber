@@ -12,7 +12,7 @@ pipeline {
         stage ('Formulaire') {
             steps {
                 script {
-                    def prenom = "${params.PRENOM"}"
+                    def prenom = "${params.PRENOM}"
                     def nom = "${params.NOM}"
                     def password = "${params.SONAR_SERVER_PWD}"
 
