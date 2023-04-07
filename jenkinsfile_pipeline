@@ -341,7 +341,7 @@ pipeline {
             steps {
                 echo "Identification de nouveaux challenges"
                 sleep 20
-                echo 'Challenges créez : 12'
+                echo 'Challenges créés : 12'
                 sleep 5
             }
         }
